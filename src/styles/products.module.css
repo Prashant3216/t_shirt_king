@@ -1,0 +1,11 @@
+#product_listing{
+    border: 1px solid red;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin: 30px ;
+}
+#product_container{
+    display: flex;
+    align-items: flex-start;
+}

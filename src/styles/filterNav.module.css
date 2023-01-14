@@ -1,0 +1,13 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+#filterBox{
+    border: 1px solid red;
+    margin:30px 0px 30px 30px;
+    padding:10px 10px 30px 10px;
+    width: 400px;
+}
+#filterBox>div{
+    margin-bottom: 20px;
+}
