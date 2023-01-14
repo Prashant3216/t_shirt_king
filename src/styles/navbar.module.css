@@ -1,0 +1,25 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+.nav_container{
+   display:flex;
+   align-items: center;
+   /* border:1px solid red; */
+   padding:10px 30px;
+   justify-content: space-between;
+   background: #000;
+   color: white;
+   box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+.shirt_cart{
+    display: flex;
+    align-items: center;
+    /* border:1px solid red; */
+    gap: 30px;
+}
+.link{
+    color: white;
+    text-decoration: none
+}

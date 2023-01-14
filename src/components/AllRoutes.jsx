@@ -1,8 +1,14 @@
 import React from 'react'
+import {Routes, Route} from "react-router-dom"
+import Cart from '../pages/Cart'
+import Products from '../pages/Products'
 
 function AllRoutes() {
   return (
-    <div>AllRoutes</div>
+    <Routes>
+        <Route path="/" element={<Products/>}></Route>
+        <Route path="/cart" element={<Cart/>}></Route>
+    </Routes>
   )
 }
 

@@ -1,0 +1,26 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+
+.card{
+    border: 1px solid black;
+}
+.card>div{
+    margin: 20px;
+    border:1px solid red
+}
+.card>div>img{
+    width: 100%;
+}
+.card>div>div{
+    display: flex;
+    justify-content: space-between;
+}
+.btn{
+    background-color: teal;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+}
