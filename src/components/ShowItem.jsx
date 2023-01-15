@@ -1,6 +1,8 @@
 import React from 'react'
 import itemStyle from "../styles/showItem.module.css"
 
+// single card component
+
 function ShowItem({imageURL, name, price}) {
   return (
     <div className={itemStyle.card}>

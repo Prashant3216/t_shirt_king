@@ -2,6 +2,8 @@ import React from 'react'
 import {NavLink} from "react-router-dom"
 import {BsCartCheckFill} from "react-icons/bs"
 import styles from "../styles/navbar.module.css"
+
+//Navbar component
 function Navbar() {
   return (
     <div>
