@@ -1,0 +1,17 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+.cartbox{
+    display: flex;
+    width: 500px;
+    justify-content: space-around;
+    margin: 0px auto;
+    padding: 10px 0px;
+    align-items: center;
+    border: 2px solid black;
+}
+#image{
+    border: 1px solid black;
+    width: 30%;
+}

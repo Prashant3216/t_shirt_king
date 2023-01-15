@@ -2,9 +2,11 @@ import React from 'react'
 import {NavLink} from "react-router-dom"
 import {BsCartCheckFill} from "react-icons/bs"
 import styles from "../styles/navbar.module.css"
+
+//Navbar component
 function Navbar() {
   return (
-    <div>
+    <div className={styles.fixedNav}>
         <div className={styles.nav_container}>
             <h1>t-Shirt King</h1>
             <div className={styles.shirt_cart}>
