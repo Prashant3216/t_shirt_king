@@ -1,11 +1,22 @@
 import React, { useContext } from "react";
+import { useState } from "react";
 import { AppContext } from "../context/AppContextProvider";
 import filterStyles from "../styles/filterNav.module.css";
 
 //filtering navigation components for filtering purpose
 
+const init={
+    gender:[],
+    price:[],
+    color:[],
+    type:[]
+}
+
 function FilterNav() {
-  const { productData } = useContext(AppContext);
+  const [filterObj, setFilterObj]=useState(init)  
+  const { productData, setProductData} = useContext(AppContext);
+
+
   //making array of colors available in the data
   let colorArr = [];
   for (let i = 0; i < productData.length; i++) {
@@ -20,7 +31,25 @@ function FilterNav() {
       typeArr.push(productData[i].type);
     }
   }
-  //   console.log(typeArr)
+  
+
+  let handleGenderFilter=(e)=>{
+   
+  }
+  let handlePriceFilter=(e)=>{
+   
+  }
+  let handleTypeFilter=(e)=>{
+   
+  }
+  let handleColorFilter=(e)=>{
+    let {name, checked}=e.target
+    if(checked){
+       let colorFilter=productData.filter(item=>item.color==name)
+    }else{
+      
+    }
+  }
 
   return (
     <div id={filterStyles.filterBox}>
@@ -30,7 +59,7 @@ function FilterNav() {
         <hr />
         {colorArr.map((item) => (
           <div key={item}>
-            <input type="checkbox" name={item}></input>
+            <input type="checkbox" name={item} onChange={handleColorFilter}></input>
             <label htmlFor={item}>{item}</label>
             <br />
           </div>

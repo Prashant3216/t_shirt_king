@@ -14,7 +14,7 @@
 
 .searchbox{
     display: flex;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     justify-content: center;
     padding-top: 30px ;
 }
