@@ -5,7 +5,6 @@ import { AppContext } from '../context/AppContextProvider'
 function Cart() {
     const {cartItem, setCartItem}=useContext(AppContext)
     let handleQuatity=(id, val)=>{
-
         let updatedCart=cartItem.map(item=>item.id==id?{
             ...item, productQuantity: item.productQuantity+val
         }: item)

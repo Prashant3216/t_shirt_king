@@ -5,15 +5,17 @@ import { getDataApi } from '../utils/getAPI'
 import ShowItem from '../components/ShowItem'
 import pro from "../styles/products.module.css"
 import FilterNav from '../components/FilterNav'
-import SearchBar from '../components/SearchBar'
+
 
 function Products() {
   
-  const {productData,setProductData}=useContext(AppContext)
+  const {productData,setProductData, setFilterData, setParmaData}=useContext(AppContext)
 //getting data
 let getData= async ()=>{
  let res=await getDataApi()
  setProductData(res)
+ setFilterData(res)
+ setParmaData(res)
 }
 
 
@@ -22,13 +24,12 @@ let getData= async ()=>{
     getData()
   },[])
   
-  useEffect(() => {
-    console.log(productData)
-  }, [productData])
+  // useEffect(() => {
+  //   console.log(productData, filterData)
+  // }, [productData])
   
   return (
     <>
-    <SearchBar/>
     <div id={pro.product_container}>
     <FilterNav/>
     <div id={pro.product_listing}>{

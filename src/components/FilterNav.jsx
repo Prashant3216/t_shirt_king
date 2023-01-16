@@ -1,54 +1,70 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import { useState } from "react";
 import { AppContext } from "../context/AppContextProvider";
 import filterStyles from "../styles/filterNav.module.css";
 
 //filtering navigation components for filtering purpose
 
-const init={
-    gender:[],
-    price:[],
-    color:[],
-    type:[]
-}
+
 
 function FilterNav() {
-  const [filterObj, setFilterObj]=useState(init)  
-  const { productData, setProductData} = useContext(AppContext);
+  const [categoryArr, setCategoryArr]=useState([])  
+  const {filterData, setProductData, parmaData} = useContext(AppContext);
 
 
   //making array of colors available in the data
   let colorArr = [];
-  for (let i = 0; i < productData.length; i++) {
-    if (!colorArr.includes(productData[i].color)) {
-      colorArr.push(productData[i].color);
+  for (let i = 0; i < parmaData.length; i++) {
+    if (!colorArr.includes(parmaData[i].color)) {
+      colorArr.push(parmaData[i].color);
     }
   }
   //making array of types avilable in the data
   let typeArr = [];
-  for (let i = 0; i < productData.length; i++) {
-    if (!typeArr.includes(productData[i].type)) {
-      typeArr.push(productData[i].type);
+  for (let i = 0; i < parmaData.length; i++) {
+    if (!typeArr.includes(parmaData[i].type)) {
+      typeArr.push(parmaData[i].type);
     }
   }
-  
-
-  let handleGenderFilter=(e)=>{
-   
-  }
-  let handlePriceFilter=(e)=>{
-   
-  }
-  let handleTypeFilter=(e)=>{
-   
-  }
-  let handleColorFilter=(e)=>{
-    let {name, checked}=e.target
+  useEffect(()=>{
+    getFilteredData(filterData, categoryArr)
+  },[categoryArr])
+  let handleCategotyFilter=(e)=>{
+    let {value, checked}=e.target
     if(checked){
-       let colorFilter=productData.filter(item=>item.color==name)
+      setCategoryArr([...categoryArr, value])
     }else{
-      
+      setCategoryArr(categoryArr.filter(item=>item!==value))
     }
+    
+  }
+
+
+  // making filter function
+
+  function getFilteredData(data, filterValue){
+    if (filterValue.length!==0){
+    let res=data.filter(item=>{
+      if (filterValue.includes(item.color))
+      return true
+      else if (filterValue.includes(item.gender))
+      return true
+      else if (filterValue.includes(item.type))
+      return true
+      else if(filterValue.includes("0-250")){
+        return item.price<=250
+      }
+      else if(filterValue.includes("251-449")){
+        return item.price>250 && item.price<=449
+      }
+      else if(filterValue.includes("450")){
+        return item.price>449
+      }
+    })
+    setProductData(res)
+  }else{
+    setProductData(data)
+  }
   }
 
   return (
@@ -59,7 +75,7 @@ function FilterNav() {
         <hr />
         {colorArr.map((item) => (
           <div key={item}>
-            <input type="checkbox" name={item} onChange={handleColorFilter}></input>
+            <input type="checkbox" name={item} value={item} onChange={handleCategotyFilter}></input>
             <label htmlFor={item}>{item}</label>
             <br />
           </div>
@@ -68,12 +84,12 @@ function FilterNav() {
       {/*filtering by Gender  */}
 
       <div>
-        <h3>Gendor</h3>
+        <h3>Gender</h3>
         <hr />
-        <input type="checkbox" name="Men"></input>
+        <input type="checkbox" name="Men" value={"Men"} onChange={handleCategotyFilter}></input>
         <label htmlFor="Men">Men</label>
         <br />
-        <input type="checkbox" name="Women"></input>
+        <input type="checkbox" name="Women" value={"Women"} onChange={handleCategotyFilter}></input>
         <label htmlFor="Women">Women</label>
         <br />
       </div>
@@ -82,14 +98,14 @@ function FilterNav() {
       <div>
         <h3>Price</h3>
         <hr />
-        <input type="checkbox" name="0-250"></input>
-        <label htmlFor="0-250">₹0-250</label>
+        <input type="checkbox" name="0-250" value="0-250" onChange={handleCategotyFilter}></input>
+        <label htmlFor="0-250" >₹0-250</label>
         <br />
-        <input type="checkbox" name="251-500"></input>
-        <label htmlFor="251-500">₹251-500</label>
+        <input type="checkbox" name="251-449" value="251-449" onChange={handleCategotyFilter}></input>
+        <label htmlFor="251-449" >₹251-449</label>
         <br />
-        <input type="checkbox" name="501-1000"></input>
-        <label htmlFor="501-1000">₹501-1000</label>
+        <input type="checkbox" name="450" value="450" onChange={handleCategotyFilter}></input>
+        <label htmlFor="450">₹450</label>
         <br />
       </div>
       {/*filtering by Type  */}
@@ -99,7 +115,7 @@ function FilterNav() {
         <hr />
         {typeArr.map((item) => (
           <div key={item}>
-            <input type="checkbox" name={item}></input>
+            <input type="checkbox" name={item} onChange={handleCategotyFilter}></input>
             <label htmlFor={item}>{item}</label>
             <br />
           </div>

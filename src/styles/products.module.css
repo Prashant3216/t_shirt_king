@@ -4,8 +4,36 @@
     grid-template-columns: repeat(3, 1fr);
     gap: 30px;
     margin: 30px ;
+    width: 80%;
 }
 #product_container{
     display: flex;
     align-items: flex-start;
+    position: relative;
+    top:160px;
+    z-index: -10;
+    
+}
+@media screen and (max-width:1150px){
+    #product_listing{
+        /* border: 1px solid red; */
+        grid-template-columns: repeat(2, 1fr);
+        
+    }
+}
+@media screen and (max-width:850px){
+    #product_listing{
+        /* border: 1px solid red; */
+        grid-template-columns: repeat(1, 1fr);
+        width: 50%;
+        
+    }
+}
+@media screen and (max-width:610px){
+    #product_listing{
+        /* border: 1px solid red; */
+        grid-template-columns: repeat(1, 1fr);
+        width: 100%;
+        
+    }
 }
