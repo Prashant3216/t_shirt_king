@@ -1,5 +1,5 @@
 
-import React, { useContext, useState } from "react";
+import React, { useContext, } from "react";
 import { AppContext } from "../context/AppContextProvider";
 import itemStyle from "../styles/showItem.module.css";
 
@@ -11,11 +11,13 @@ function ShowItem({ imageURL, name, price, quantity, id, type, color, gender }) 
   let handleAddToCart = (_id) => {
     if (cartItem.length==0){
         setCartItem([...cartItem, { imageURL, name, price, productQuantity:1, id, quantity}])
+        alert("Added to cart")
     }
     else {
        let productcheck=cartItem.filter(item=> item.id==_id)
        if (productcheck.length==0){
         setCartItem([...cartItem, { imageURL, name, price, productQuantity:1, id, quantity }])
+        alert("Added to cart")
        }
        else{
         alert("Already added to cart")
@@ -38,8 +40,7 @@ function ShowItem({ imageURL, name, price, quantity, id, type, color, gender }) 
             <p>Color: {color}</p>
             <p>Gender: {gender}</p>
           </div>
-          <button className={itemStyle.btn} onClick={()=>{handleAddToCart(id)
-          console.log("ok")}}>
+          <button className={itemStyle.btn} onClick={()=>handleAddToCart(id)}>
             Add to cart
           </button>
         </div>

@@ -14,7 +14,7 @@ function Navbar() {
             <h1>t-Shirt King</h1>
             <div className={styles.shirt_cart}>
                 <NavLink to="/" className={styles.link}><h4>T-Shirts</h4></NavLink>
-                <NavLink to="/cart"><BsCartCheckFill  size={"30px"} color="white"/>{cartItem.length!==0 && cartItem.length }</NavLink>
+                <NavLink to="/cart" className={styles.link}><BsCartCheckFill  size={"30px"} color="white"/>{cartItem.length!==0&&<p>{cartItem.length!==0 && cartItem.length }</p>}</NavLink>
             </div>
         </div>
         <SearchBar/>

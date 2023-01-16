@@ -1,0 +1,30 @@
+*{
+    margin:0;
+    box-sizing: border-box;
+}
+.cart_container{
+    position:relative;
+    top:160px;
+    margin: 20px ;
+}
+.totalSum{
+    /* border:1px solid red; */
+    width:500px;
+    display: flex;
+    padding: 10px;;
+    justify-content: space-between;
+    background-color: black;
+    color:white;
+    margin: auto;
+}
+@media screen and (max-width:560px){
+    .totalSum{
+        width: 350px;
+        
+    }
+    .cart_container{
+        
+        top:200px;
+        
+    }
+}
