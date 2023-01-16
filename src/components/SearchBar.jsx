@@ -5,7 +5,8 @@ import { getDataApi } from "../utils/getAPI";
 // search bar component
 function SearchBar() {
   const [searchtext, setSearchText] = useState("");
-  const { productData, setProductData } = useContext(AppContext);
+  const { productData, setProductData, setFilterData } = useContext(AppContext);
+
   // function for free search functionality
   let wholeQuerySearch = (query,data) => {
     let searchData = data.filter(
@@ -57,6 +58,7 @@ function SearchBar() {
     totalResult.push(...finalSingleSearch); 
    }
    setProductData(totalResult)
+   setFilterData(totalResult)
   };
 
   return (

@@ -5,6 +5,8 @@
 .fixedNav{
     position: fixed;
     top:0;
+    width: 100%;
+    z-index: 100;
     
 }
 .nav_container{
@@ -26,5 +28,17 @@
 }
 .link{
     color: white;
-    text-decoration: none
+    text-decoration: none;
+    display: flex;
+    
 }
+.link>p{
+    padding: 0px 5px;
+    border-radius: 50%;
+    background-color: teal;
+    position:fixed;
+    right:20px;
+    top:10px
+
+}
+

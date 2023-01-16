@@ -10,6 +10,7 @@
     border-bottom: 2px solid black;
     outline: none;
     font-size: 16px;
+    
 }
 
 .searchbox{
@@ -17,10 +18,15 @@
     /* border: 1px solid red; */
     justify-content: center;
     padding-top: 30px ;
+    background-color: white;
+    padding-bottom: 30px;
 }
 .btn{
     border:none;
     background-color: teal;
     color:white;
    border-radius: 5px ;
+}
+.btn:hover{
+    background-color: green;
 }
