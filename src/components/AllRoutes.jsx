@@ -3,6 +3,7 @@ import {Routes, Route} from "react-router-dom"
 import Cart from '../pages/Cart'
 import Products from '../pages/Products'
 
+
 //AllRoutes available here
 
 function AllRoutes() {
