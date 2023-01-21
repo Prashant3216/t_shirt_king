@@ -1,6 +1,6 @@
 # t-Shirt King 
 
-[https://t-shirt-king.vercel.app/](t_shirt_king) is an e-commerce app for demonstration purposes. It is a reflection of my frontend skills as all the features are implemented on the client side. This is one of the coding assignments that I got during job hunt. it is an simple e-commerce app describing some of the basic feature 
+[t_shirt_king](https://t-shirt-king.vercel.app/) is an e-commerce app for demonstration purposes. It is a reflection of my frontend skills as all the features are implemented on the client side. This is one of the coding assignments that I got during job hunt. it is an simple e-commerce app describing some of the basic feature 
 of e-commerce websites, such as showing products on the DOM after fetching data from API, filtering, searching, add to cart, etc.
 
 ## Clone it
