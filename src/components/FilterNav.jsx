@@ -1,5 +1,6 @@
 import React, { useContext, useEffect } from "react";
 import { useState } from "react";
+import { useSearchParams } from "react-router-dom";
 import { AppContext } from "../context/AppContextProvider";
 import filterStyles from "../styles/filterNav.module.css";
 
@@ -8,8 +9,14 @@ import filterStyles from "../styles/filterNav.module.css";
 
 
 function FilterNav() {
-  const [categoryArr, setCategoryArr]=useState([])  
+  // const [searchFilterParams,setSearchFilterParams]=useSearchParams()
+  // const initFilterArray=searchFilterParams.get("filter") || []
+  
+  const [catefilter, setCateFilter]=useState([])
+    
   const {filterData, setProductData, parmaData} = useContext(AppContext);
+
+  // console.log(filter)
 
 
   //making array of colors available in the data
@@ -26,20 +33,25 @@ function FilterNav() {
       typeArr.push(parmaData[i].type);
     }
   }
+  // useEffect(()=>{
+  //   setSearchFilterParams({
+  //     filter
+  //   })
+  // },[filter])
   useEffect(()=>{
-    getFilteredData(filterData, categoryArr)
-  },[categoryArr])
+    getFilteredData(filterData, catefilter)
+  },[catefilter])
   let handleCategotyFilter=(e)=>{
     let {value, checked}=e.target
     if(checked){
-      setCategoryArr([...categoryArr, value])
+      setCateFilter([...catefilter, value])
     }else{
-      setCategoryArr(categoryArr.filter(item=>item!==value))
+      setCateFilter(catefilter.filter(item=>item!==value))
     }
     
   }
 
-
+console.log(catefilter)
   // making filter function
 
   function getFilteredData(data, filterValue){
@@ -115,7 +127,7 @@ function FilterNav() {
         <hr />
         {typeArr.map((item) => (
           <div key={item}>
-            <input type="checkbox" name={item} onChange={handleCategotyFilter}></input>
+            <input type="checkbox" name={item}  value={item} onChange={handleCategotyFilter}></input>
             <label htmlFor={item}>{item}</label>
             <br />
           </div>

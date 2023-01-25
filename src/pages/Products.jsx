@@ -4,9 +4,12 @@ import { getDataApi } from "../utils/getAPI";
 import ShowItem from "../components/ShowItem";
 import pro from "../styles/products.module.css";
 import FilterNav from "../components/FilterNav";
+import { useSearchParams } from "react-router-dom";
 
 function Products() {
   const { productData, setProductData, setFilterData, setParmaData } = useContext(AppContext);
+  
+
   //getting data
   let getData = async () => {
     let res = await getDataApi();
