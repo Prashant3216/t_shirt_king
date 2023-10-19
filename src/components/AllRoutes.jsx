@@ -12,9 +12,7 @@ function AllRoutes() {
     <Routes>
         <Route path="/" element={<Products/>}></Route>
         <Route path="/cart" element={<Cart/>}></Route>
-        
-
-    </Routes>
+        </Routes>
   )
 }
 
