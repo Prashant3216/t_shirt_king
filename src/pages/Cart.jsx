@@ -30,6 +30,7 @@ function Cart() {
           )}
         </h3>
       </div>
+
     </div>
   );
 }
